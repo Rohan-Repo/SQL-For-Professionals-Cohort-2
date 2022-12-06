@@ -1,12 +1,12 @@
 USE AdventureWorks2019;
 
 -- Contact Details
--- Where Clause
+	-- Way 1 : Where Clause
 SELECT p.Title, p.FirstName, p.LastName, e.EmailAddress, ph.PhoneNumber 
 FROM Person.Person p, Person.EmailAddress e , Person.PersonPhone ph WHERE
 p.BusinessEntityID = e.BusinessEntityID AND
 p.BusinessEntityID = ph.BusinessEntityID;
--- Joins
+	-- Way 2 : Joins
 SELECT p.Title, p.FirstName, p.LastName, e.EmailAddress, ph.PhoneNumber 
 	FROM Person.Person p
 INNER JOIN Person.EmailAddress e
@@ -15,6 +15,7 @@ INNER JOIN Person.PersonPhone ph
 	ON p.BusinessEntityID = ph.BusinessEntityID
 
 -- Switch Case Eg:
+	-- Way 1
 SELECT *,
 PhoneType = 
 	CASE PhoneNumberTypeID
@@ -25,7 +26,7 @@ PhoneType =
 from Person.PersonPhone
 ORDER BY BusinessEntityID;
 
--- Type 2 
+	-- Way 2
 SELECT *,
 	CASE
 		WHEN PhoneNumberTypeID = 1 THEN 'CELL'

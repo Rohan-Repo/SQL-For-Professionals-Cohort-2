@@ -1,6 +1,8 @@
 USE AdventureWorks2019;
 
 --  Find Foreign Key in a Table
+	-- Way 1: Directly in Object Explorer : Tables -> HumanResources.EmployeePayHistory -> Keys
+	-- Way 2: From INFORMATION_SCHEMA
 SELECT 
 TC.CONSTRAINT_SCHEMA, TABLE_NAME, TC.CONSTRAINT_NAME AS ForeignKey, CONSTRAINT_TYPE, UNIQUE_CONSTRAINT_NAME AS ParentKey 
 FROM
